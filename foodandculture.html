@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover food and culture in the French Riviera">
+    <meta name="keywords" content="French Riviera food, Nice food, Cannes food, Monaco food, Provencal food, Provencal food and culture">
+
+    <title>Food & Culture - French Riviera Guide</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    
+    <style>
+       
+        .experience-grid {
+            padding-bottom: 50px;
+        }
+        .exp-card img {
+            transition: transform 0.5s ease;
+        }
+        .exp-card:hover img {
+            transform: scale(1.05); 
+        }
+        .video-wrapper {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: inline-block;
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header" id="food-header">
+        <div class="header-overlay">
+            <nav>
+    <a href="index.html" class="logo-link">
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+    
+        <a href="weather.html">Weather</a>
+        <a href="foodandculture.html">Food & Wine</a>
+        <a href="planner.html">Plan Trip</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="searchSite()">🔍</button>
+    </div>
+</nav>
+        </div>
+        <div class="hero-text">
+            <h2>Food & Wine</h2>
+            <p>Taste the flavors of the Côte d'Azur</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro-section">
+            <h3>The Flavors of the South</h3>
+            <p>The cuisine of the French Riviera is characterised by fresh Mediterranean ingredients such as golden olive oil, fresh seafood, and fragrant sun-ripened herbs.</p>
+            <div class="divider"></div>
+        </section>
+
+        <section class="experience-grid">
+            <div class="exp-card">
+                <img src="images/socca.jpg" alt="Socca Food">
+                <div class="exp-content">
+                    <h4>Socca</h4>
+                    <p>A traditional chickpea pancake with a golden crust and moist interior. Historically known to sustain Nice during sieges, it is now a street food icon.</p>
+                    <a href="https://chezpippo.com/fr" target="_blank" class="exp-link">Visit Chez Pippo</a>
+                </div>
+            </div>
+
+            <div class="exp-card">
+                <img src="images/ratatouille.jpg" alt="Ratatouille">
+                <div class="exp-content">
+                    <h4>Ratatouille</h4>
+                    <p>A hearty stew of late-summer vegetables like eggplant, zucchini, and bell peppers, all simmered in rich Provencal olive oil.</p>
+                    <a href="https://aux-bons-enfants-cannes.com/" target="_blank" class="exp-link">Visit Aux Bons Enfants</a>
+                </div>
+            </div>
+
+            <div class="exp-card">
+                <img src="images/saladenicosie.jpg" alt="Salade Nicoise">
+                <div class="exp-content">
+                    <h4>Salade Niçoise</h4>
+                    <p>This world-famous salad combines olives, tomatoes, hard-boiled eggs, and anchovies for a refreshing coastal meal.</p>
+                    <a href="https://www.galet-plage.com/en/index" target="_blank" class="exp-link">Visit Le Galet</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <h3>Vineyards of the South</h3>
+            <p>The French Riviera has a long wine-making history dating back to 600BC, producing some of the world's most elegant Rosés.</p>
+            <div class="divider"></div>
+        </section>
+
+        <section class="experience-grid">
+            <div class="exp-card">
+                <img src="images/vignobledebelle.jpg" alt="Vignoble de Belle">
+                <div class="exp-content">
+                    <h4>Vignoble de Bellet</h4>
+                    <p>Perched on the hills of Nice, this unique vineyard produces AOC wines cooled by the refreshing winds of the Alps and the Sea.</p>
+                </div>
+            </div>
+
+            <div class="exp-card">
+                <img src="images/lesvinsdesîleslérins.jpg" alt="Les vins des Îles Lérins">
+                <div class="exp-content">
+                    <h4>Vins des Îles Lérins</h4>
+                    <p>Produced by monks on the St. Honorat island, these exceptional wines are grown in a silent, sacred sanctuary off the coast of Cannes.</p>
+                </div>
+            </div>
+
+            <div class="exp-card">
+                <img src="images/vignobledesaintjeannet.jpg" alt="Vignoble de Saint Jeannet">
+                <div class="exp-content">
+                    <h4>Vignoble de St. Jeannet</h4>
+                    <p>Known for its "Vins de Soleil," where wine is aged in glass jars under the intense Provencal sun to create unique, deep flavors.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro-section video-feature">
+    <h3>Experience The Riviera</h3>
+    <div class="divider"></div>
+    
+    <div class="video-wrapper">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/1BMwtpLhG70" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <p class="video-caption">Watch this guide that takes you through the best local eats in the Riviera.</p>
+</section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Holiday Riviera. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

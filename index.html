@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - French Riviera Guide</title>
+
+    <meta name="description" content="Plan your dream holiday to the French Riviera. Discover sun-drenched beaches, exquisite Mediterranean food, and the cultural heart of Nice, Cannes, and Monaco.">
+    <meta name="keywords" content="French Riviera holiday, plan trip to Nice, Cannes beaches, Monaco luxury travel, Cote d'Azur guide, Mediterranean dream holiday, French Riviera food and culture">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header class="main-header" id="home-header">
+        <div class="header-overlay">
+            <nav>
+    <a href="index.html" class="logo-link">
+        <img src="images/logo.png" alt="Holiday Riviera Logo" class="nav-logo">
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+    
+        <a href="weather.html">Weather</a>
+        <a href="foodandculture.html">Food & Wine</a>
+        <a href="planner.html">Plan Trip</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="searchSite()">🔍</button>
+    </div>
+</nav>
+        </div>
+
+        <div class="hero-text">
+            <h2>Plan your Dream Holiday</h2>
+            <p>Plan your getaway on the blue coasts of the Mediterranean Sea full of beaches, food and culture.</p>
+            <a href="destinations.html" class="hero-btn">View All Destinations</a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        
+        <section class="intro-section">
+            <h3>A Legacy of Elegance</h3>
+            <p>
+                The French Riviera is one of the country’s finest regions and has been a cherished holiday destination for centuries. 
+                The region's beauty was first recognised by European aristocrats in the 18th century, which commenced the Riviera's development 
+                as grand promenades, casinos, and palaces were built.
+            </p>
+            <p>
+                Today, the French Riviera is adored by tourists, artists, and A-listers alike. It remains a timeless icon of 
+                sun-drenched shores, luxurious escapes, and a relaxed, elegant lifestyle.
+            </p>
+            <div class="divider"></div>
+        </section>
+
+        <section class="map-section" id="map-anchor">
+            <h2 class="map-section-title">Discover the Coast</h2>
+            <p>Explore Nice, Monaco, and Cannes from above through our interactive map</p>
+            <div id="map"></div>
+        </section>
+        
+       <section class="experience-grid">
+            <div class="exp-card">
+                <img src="images/monacocasino.jpg" alt="Monaco Luxury">
+                <div class="exp-content">
+                    <h4>Luxury & Glamour</h4>
+                    <p>Experience high-stakes elegance in the heart of Monte Carlo’s world-famous casinos and yacht clubs.</p>
+                    <a href="monaco.html" class="exp-link">Explore Monaco</a>
+                </div>
+            </div>
+
+            <div class="exp-card">
+                <img src="images/nicehistory.jpg" alt="Nice History">
+                <div class="exp-content">
+                    <h4>Cultural Heart</h4>
+                    <p>Walk the historic cobblestone streets and vibrant flower markets of the legendary Old Town.</p>
+                    <a href="nice.html" class="exp-link">Explore Nice</a>
+                </div>
+            </div>
+
+            <div class="exp-card">
+                <img src="images/cannesbeachclub.jpg" alt="Cannes Beach Club">
+                <div class="exp-content">
+                    <h4>Film & Festival</h4>
+                    <p>Walk the red carpet of the Palais des Festivals and bask on the golden sands of the Croisette.</p>
+                    <a href="cannes.html" class="exp-link">Explore Cannes</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Holiday Riviera. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+      (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. See https://goo.gle/js-api-loading"):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+        key: "AIzaSyCjETYKt16HmKkJ6-mfECw0ov2LL8fR_u8", 
+        v: "weekly"
+      });
+
+      async function initMap() {
+          const { Map } = await google.maps.importLibrary("maps");
+          const { Marker } = await google.maps.importLibrary("marker");
+
+          // Centered on Nice
+          const rivieraCenter = { lat: 43.7102, lng: 7.2620 };
+          
+          const map = new Map(document.getElementById("map"), {
+              zoom: 10,
+              center: rivieraCenter,
+              mapId: "RIVIERA_MAP_ID" 
+          });
+
+          // Markers for the three main cities
+          const locations = [
+              { title: "Nice", pos: { lat: 43.7102, lng: 7.2620 } },
+              { title: "Monaco", pos: { lat: 43.7384, lng: 7.4246 } },
+              { title: "Cannes", pos: { lat: 43.5528, lng: 7.0174 } }
+          ];
+
+          locations.forEach(location => {
+              new Marker({
+                  position: location.pos,
+                  map: map,
+                  title: location.title,
+                  animation: google.maps.Animation.DROP
+              });
+          });
+      }
+      initMap();
+    </script>
+</body>
+</html>

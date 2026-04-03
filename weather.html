@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather - French Riviera Guide</title>
+
+    <meta name="description" content="Check the 16-day weather forecast for Nice, Cannes, and Monaco. Plan your trip with our Riviera seasonal averages and travel tips to pack perfectly for the Mediterranean climate.">
+    <meta name="keywords" content="French Riviera weather, Nice weather forecast, Cannes 16 day forecast, Monaco climate, best time to visit French Riviera, Riviera seasonal averages, packing for South of France">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <style>
+        .weather-section-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .weather-section-container h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: #006994;
+        }
+
+        .weather-section-container p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        .controls {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin: 40px 0;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            border-bottom: 3px solid #006994;
+        }
+
+        .weather-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .weather-box {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            color: #333;
+            border-bottom: 5px solid #006994;
+        }
+
+        
+        .video-feature-section {
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .video-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            border: 5px solid #006994; 
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: #000;
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-caption {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #666;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+       
+
+        .weather-info-grid {
+            display: flex;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .averages-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .averages-table th {
+            text-align: left;
+            color: #006994;
+            border-bottom: 2px solid #006994;
+            padding: 10px;
+        }
+
+        .averages-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tip-box {
+            background: #f0f7f9;
+            padding: 20px;
+            border-left: 5px solid #006994;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .weather-info-grid { flex-direction: column; }
+            .controls { flex-direction: column; width: 100%; }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header" id="weather-header">
+        <div class="header-overlay">
+           <nav>
+    <a href="index.html" class="logo-link">
+        <img src="images/logo.png" alt="Holiday Riviera Logo" class="nav-logo">
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+    
+        <a href="weather.html">Weather</a>
+        <a href="foodandculture.html">Food & Wine</a>
+        <a href="planner.html">Plan Trip</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="searchSite()">🔍</button>
+    </div>
+</nav>
+        </div> 
+        <div class="hero-text">
+            <h2>Riviera Weather</h2>
+            <p>Pack according to the Riviera’s mood</p>
+        </div>
+    </header> 
+
+    <div class="weather-section-container">
+        <h2>What town has the best weather?</h2>
+        <p>Check for up to 16 days in advance</p>
+        
+        <div class="controls">
+            <label for="weather-date" style="font-weight: bold; color: #006994;">Pick a Date:</label>
+            <input type="date" id="weather-date" style="padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+            <button onclick="updateAllWeather()" class="hero-btn" style="margin-top: 0; padding: 10px 25px; border: none; cursor: pointer;">Check Weather</button>
+        </div>
+
+        <div class="weather-container">
+            <div class="weather-box" id="box-nice">
+                <div class="date-display" id="display-date-nice">--</div>
+                <h3>Nice 🏖️</h3>
+                <div class="local-time-small" style="font-size: 0.8rem; color: #006994; margin-bottom: 10px; font-weight: bold;">Local Time: <span class="city-time">--:--</span></div>
+                <div class="data-point"><span>Temp</span> <span id="temp-nice" style="font-weight: bold;">--</span>°C</div>
+                <div class="data-point"><span>Wind</span> <span id="wind-nice">--</span> km/h</div>
+                <div class="data-point"><span>Rain</span> <span id="rain-nice">--</span> mm</div>
+            </div>
+
+            <div class="weather-box" id="box-cannes">
+                <div class="date-display" id="display-date-cannes">--</div>
+                <h3>Cannes 🎬</h3>
+                <div class="local-time-small" style="font-size: 0.8rem; color: #006994; margin-bottom: 10px; font-weight: bold;">Local Time: <span class="city-time">--:--</span></div>
+                <div class="data-point"><span>Temp</span> <span id="temp-cannes" style="font-weight: bold;">--</span>°C</div>
+                <div class="data-point"><span>Wind</span> <span id="wind-cannes">--</span> km/h</div>
+                <div class="data-point"><span>Rain</span> <span id="rain-cannes">--</span> mm</div>
+            </div>
+
+            <div class="weather-box" id="box-monaco">
+                <div class="date-display" id="display-date-monaco">--</div>
+                <h3>Monaco 🏎️</h3>
+                <div class="local-time-small" style="font-size: 0.8rem; color: #006994; margin-bottom: 10px; font-weight: bold;">Local Time: <span class="city-time">--:--</span></div>
+                <div class="data-point"><span>Temp</span> <span id="temp-monaco" style="font-weight: bold;">--</span>°C</div>
+                <div class="data-point"><span>Wind</span> <span id="wind-monaco">--</span> km/h</div>
+                <div class="data-point"><span>Rain</span> <span id="rain-monaco">--</span> mm</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="video-feature-section">
+    <h3 style="font-family: 'Dancing Script', cursive; font-size: 3.2rem; color: #006994; margin-bottom: 10px;">Experience The Riviera</h3>
+    <div class="divider" style="width: 80px; height: 3px; background-color: #006994; margin: 0 auto 30px;"></div>
+    
+    <div class="video-container">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/fKD-A4s7RGg" 
+            title="Riviera Travel Guide" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen 
+            style="width: 100%; height: 100%; aspect-ratio: 16/9; border: none;">
+        </iframe>
+    </div>
+
+    <p class="video-caption">Watch this guide that walks you through the stunning towns of the Riviera and dress for the occasion.</p>
+</section>
+
+    <div class="weather-info-grid">
+        <section class="info-card">
+            <h3 style="font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: #006994;">Yearly Averages</h3>
+            <p>Planning further than 16 days ahead? Here is what to expect.</p>
+            <table class="averages-table">
+                <thead>
+                    <tr>
+                        <th>Season</th>
+                        <th>Avg Temp</th>
+                        <th>Vibe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Spring (Apr-Jun)</td><td>19°C - 23°C</td><td>Sightseeing 🌸</td></tr>
+                    <tr><td>Summer (Jul-Aug)</td><td>27°C - 30°C</td><td>Beach Peak ☀️</td></tr>
+                    <tr><td>Autumn (Sep-Oct)</td><td>20°C - 24°C</td><td>Warm Sea 🍷</td></tr>
+                    <tr><td>Winter (Nov-Mar)</td><td>12°C - 15°C</td><td>Mild & Quiet ☕</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="info-card">
+            <h3 style="font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: #006994;">Travel Tips</h3>
+            <div id="packing-tip" class="tip-box">
+                Select a date to see our Riviera travel recommendations!
+            </div>
+            <p id="local-clock" style="font-weight: bold; color: #006994; margin-top: 15px;">
+                Current Riviera Time: --:--
+            </p>
+        </section>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Holiday Riviera. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const dateInput = document.getElementById('weather-date');
+        const today = new Date();
+        const maxDate = new Date();
+        maxDate.setDate(today.getDate() + 16);
+        
+        dateInput.valueAsDate = today;
+        dateInput.min = today.toISOString().split('T')[0];
+        dateInput.max = maxDate.toISOString().split('T')[0];
+
+        async function updateAllWeather() {
+            const selectedDate = dateInput.value;
+            if (!selectedDate) return alert("Please pick a date first!");
+
+            const cities = [
+                { id: "nice", lat: 43.71, lon: 7.26 },
+                { id: "cannes", lat: 43.55, lon: 7.01 },
+                { id: "monaco", lat: 43.73, lon: 7.42 }
+            ];
+
+            let firstCityTemp = 0;
+            let firstCityRain = 0;
+
+            for (let city of cities) {
+                try {
+                    const url = `https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&daily=temperature_2m_max,wind_speed_10m_max,precipitation_sum&start_date=${selectedDate}&end_date=${selectedDate}&timezone=auto`;
+                    const response = await fetch(url);
+                    const data = await response.json();
+
+                    const temp = data.daily.temperature_2m_max[0];
+                    const wind = data.daily.wind_speed_10m_max[0];
+                    const rain = data.daily.precipitation_sum[0];
+
+                    if(city.id === "nice") { firstCityTemp = temp; firstCityRain = rain; }
+
+                    document.getElementById(`temp-${city.id}`).innerText = temp;
+                    document.getElementById(`wind-${city.id}`).innerText = wind;
+                    document.getElementById(`rain-${city.id}`).innerText = rain;
+                    document.getElementById(`display-date-${city.id}`).innerText = selectedDate;
+
+                    const box = document.getElementById(`box-${city.id}`);
+                    if (rain > 0) {
+                        box.style.borderBottomColor = "#9b59b6"; 
+                    } else if (temp > 25) {
+                        box.style.borderBottomColor = "#e67e22"; 
+                    } else {
+                        box.style.borderBottomColor = "#006994"; 
+                    }
+                } catch (error) {
+                    console.error("Error fetching weather:", error);
+                }
+            }
+            updatePackingTip(firstCityTemp, firstCityRain);
+        }
+
+        function updatePackingTip(temp, rain) {
+            let tip = "";
+            if (rain > 0) {
+                tip = "☂️ Rainy day! Perfect for museums or a long lunch in Vieux Nice.";
+            } else if (temp > 25) {
+                tip = "☀️ Hot and sunny! Time for the beach—don't forget sunscreen.";
+            } else {
+                tip = "🕶️ Beautiful mild weather. Great for exploring hilltop villages.";
+            }
+            document.getElementById('packing-tip').innerText = tip;
+        }
+
+        function updateRivieraTime() {
+            const options = { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', hour12: false };
+            const time = new Intl.DateTimeFormat('en-GB', options).format(new Date());
+            document.getElementById('local-clock').innerText = `Current Riviera Time: ${time}`;
+            document.querySelectorAll('.city-time').forEach(el => el.innerText = time);
+        }
+
+        setInterval(updateRivieraTime, 1000);
+        updateRivieraTime();
+        updateAllWeather();
+    </script>
+</body>
+</html>

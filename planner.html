@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner - French Riviera Guide</title>
+
+    <meta name="description" content="Use our French Riviera trip planner to create a personalized itinerary. Choose your stay duration, activities, and dining preferences to build your dream Mediterranean escape.">
+    <meta name="keywords" content="French Riviera trip planner, personalized itinerary Riviera, plan Nice holiday, Monaco travel planner, Cannes beach clubs, Mediterranean holiday guide, custom travel plan France">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        
+        .planner-section {
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+
+        .planner-card {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-bottom: 5px solid #006994;
+        }
+
+        .planner-card h2 {
+            font-family: 'Dancing Script', cursive;
+            color: #006994;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #444;
+            font-family: 'Playfair Display', serif;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .generate-btn {
+            background-color: #006994;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 30px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .generate-btn:hover {
+            background-color: #004d6d;
+            transform: scale(1.02);
+        }
+
+        
+        .audio-box {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f0f7f9;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 5px solid #006994;
+        }
+
+        .audio-box h4 {
+            color: #006994;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header" id="planner-header">
+        <div class="header-overlay">
+            <nav>
+    <a href="index.html" class="logo-link">
+        <img src="images/logo.png" alt="Holiday Riviera Logo" class="nav-logo">
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+    
+        <a href="weather.html">Weather</a>
+        <a href="foodandculture.html">Food & Wine</a>
+        <a href="planner.html">Plan Trip</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="searchSite()">🔍</button>
+    </div>
+</nav>
+        </div>
+        <div class="hero-text">
+            <h2>Personalised Itinerary</h2>
+            <p>Plan your perfect escape</p>
+        </div>
+    </header>
+
+    <main class="planner-section">
+        <div class="planner-card">
+            <h2>Your Preferences</h2>
+            
+            <div class="audio-box">
+                <h4>Set the Mood: Ocean Sounds for while you Plan</h4>
+                <audio controls="controls">
+                    <source src="oceansounds.mp3" type="audio/mpeg">
+                    <source src="oceansounds.ogg" type="audio/ogg">
+                    <a href="oceansounds.mp3">Download Audio</a>
+                </audio>
+                <div style="margin-top: 10px; font-size: 0.8rem;">
+                   
+                </div>
+            </div>
+
+            <form id="plannerForm">
+    <label for="days">Length of Stay</label>
+<select id="days">
+    <option value="2">2 Days</option>
+    <option value="3">3 Days</option>
+    <option value="4">4 Days</option>
+    <option value="5">5 Days</option>
+    <option value="6">6 Days</option>
+    <option value="7">7 Days</option>
+</select>
+
+    <label for="activities">Preferred Activities</label>
+    <select id="activities">
+        <option value="nice">History & Culture</option>
+        <option value="monaco">Yachting & Casino</option>
+        <option value="cannes">Beach Clubs</option>
+    </select>
+
+    <label for="food">Food Preference</label>
+    <select id="food">
+        <option value="traditional">Local Street Food</option>
+        <option value="luxury">Fine Dining</option>
+        <option value="beach">Beachside Dining</option>
+      
+    </select>
+
+    <label for="shopping">Shopping Style</label>
+    <select id="shopping">
+        <option value="markets">Local Markets</option>
+        <option value="designer">Designer Shops</option>
+        <option value="luxurycasual">Luxury&Casual Boutiques</option>
+    </select>
+
+    <button type="button" onclick="generatePlan()" class="generate-btn">Generate Plan</button>
+</form>
+
+            <div id="planResult" style="margin-top: 30px; text-align: center;">
+                <h3 id="resultHeader" style="font-family: 'Dancing Script', cursive; color: #006994; font-size: 2.2rem;"></h3>
+                <p id="planOutput" style="line-height: 1.6; color: #555;"></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Holiday Riviera. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

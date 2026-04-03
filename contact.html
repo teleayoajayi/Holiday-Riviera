@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact the French Riviera Travel Guide, Explore Riviera">
+    <meta name="keywords" content="French Riviera contact, travel guide Nice Cannes Monaco">
+    <title>Contact - French Riviera Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .contact-section-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-bottom: 5px solid #006994;
+            flex: 1;
+            min-width: 320px;
+            max-width: 550px;
+        }
+
+        .hero-text h2, .hero-text p {
+            color: white !important;
+        }
+
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #006994;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .contact-card p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        
+        form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .submit-btn {
+            background-color: #006994;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 50px;
+            margin-top: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        
+        .faq-item {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 15px 0;
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px; 
+            padding-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header" id="contact-header">
+        <div class="header-overlay">
+            <nav>
+    <a href="index.html" class="logo-link">
+        <img src="images/logo.png" alt="Holiday Riviera Logo" class="nav-logo">
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+    
+        <a href="weather.html">Weather</a>
+        <a href="foodandculture.html">Food & Wine</a>
+        <a href="planner.html">Plan Trip</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="searchSite()">🔍</button>
+    </div>
+</nav>
+        </div>
+        <div class="hero-text">
+            <h2>Get in Touch</h2>
+            <p>Ask any question you may have about your trip to the French Riviera</p>
+        </div>
+    </header>
+
+    <main class="contact-section-container">
+        <div class="contact-card">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="contactName">Name:</label>
+                <input type="text" id="contactName" required>
+
+                <label for="contactEmail">Email:</label>
+                <input type="email" id="contactEmail" required>
+
+                <label for="contactReason">Reason for Contact</label>
+                <select id="contactReason" required>
+                    <option value="">Select an Option</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="travel">Travel Inquiry</option>
+                    <option value="feedback">Website Feedback</option>
+                </select>
+
+                <label for="contactMessage">Message:</label>
+                <textarea id="contactMessage" rows="4" required></textarea>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <div id="contactResult" style="margin-top: 20px; text-align: center; color: #006994;"></div>
+        </div>
+
+        <div class="contact-card">
+            <h2>FAQ's</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">What is the best time to visit? <span>+</span></button>
+                <div class="faq-answer">May to September offers the best weather.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Is English widely spoken? <span>+</span></button>
+                <div class="faq-answer">Yes, especially in tourist areas such as Nice, Cannes and Monaco.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Is it expensive? <span>+</span></button>
+                <div class="faq-answer">Yes, the French Riviera is genrally considered expensive, but it is possible to avoid the prices if you visit in off peak season, pick a budget friendly hotel in Nice or Antibes and use public transport instead of renting a car.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How do I get around? <span>+</span></button>
+                <div class="faq-answer">Car rental options are available for longer itinearies in most towns such as Nice, Cannes and Monaco, however to save money on shorter trips, bus, tram and train is advised.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Is it wheelchair accesible? <span>+</span></button>
+                <div class="faq-answer">It is moderately wheelchair friendly, while some improvements have been made in recent years offering acessibility in trams, buses, flat promenades and water chairs, there are still older areas with high sidewalks, public bathrooms and uneven ground that can create difficulty.</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; Holiday Riviera. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

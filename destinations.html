@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - French Riviera Guide</title>
+    <meta name="description" content="Compare and choose your perfect French Riviera destination. Explore the historic charm of Nice, the high-end luxury of Monaco, and the golden beaches of Cannes.">
+    <meta name="keywords" content="French Riviera destinations, visit Nice France, Monaco travel guide, Cannes sightseeing, Cote d'Azur trip planning, best places in French Riviera, Riviera city guide">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header class="main-header" id="destinations-header">
+        <div class="header-overlay">
+              <nav>
+    <a href="index.html" class="logo-link">
+        <img src="images/logo.png" alt="Holiday Riviera Logo" class="nav-logo">
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+    
+        <a href="weather.html">Weather</a>
+        <a href="foodandculture.html">Food & Wine</a>
+        <a href="planner.html">Plan Trip</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="searchSite()">🔍</button>
+    </div>
+</nav>
+        </div> 
+
+        <div class="hero-text">
+            <h2>Choose Your Destination</h2>
+            <div class="dest-button-row">
+                <a href="nice.html" class="hero-btn">Nice</a>
+                <a href="monaco.html" class="hero-btn">Monaco</a>
+                <a href="cannes.html" class="hero-btn">Cannes</a>
+            </div>
+        </div>
+    </header> 
+
+    <main class="content-wrapper">
+        <div class="slideshow-wrapper">
+            <h3 class="explore-title">Explore your options</h3>
+
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <a href="nice.html">
+                        <div class="slide-image-box">
+                            <img src="images/nicelandscape.jpg" alt="Nice Coastline">
+                        </div>
+                        <div class="slide-footer">
+                            <span class="footer-title">Explore Nice</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mySlides fade">
+                    <a href="monaco.html">
+                        <div class="slide-image-box">
+                            <img src="images/monacolandscape.jpg" alt="Monaco Harbor">
+                        </div>
+                        <div class="slide-footer">
+                            <span class="footer-title">Explore Monaco</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mySlides fade">
+                    <a href="cannes.html">
+                        <div class="slide-image-box">
+                            <img src="images/canneslandscape.jpg" alt="Cannes Beach">
+                        </div>
+                        <div class="slide-footer">
+                            <span class="footer-title">Explore Cannes</span>
+                        </div>
+                    </a>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Holiday Riviera. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) { showSlides(slideIndex += n); }
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            if (slides.length === 0) return; 
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            slides[slideIndex-1].style.display = "block";  
+        }
+    </script>
+</body>
+</html>
